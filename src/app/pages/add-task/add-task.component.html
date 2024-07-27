@@ -1,0 +1,72 @@
+<div class="task-form-container">
+  <h2>Add New Task</h2>
+  <form (ngSubmit)="addTask()" [formGroup]="addTaskForm">
+    <div>
+      <label for="title">Title:</label>
+      <input
+        formControlName="title"
+        type="text"
+        id="title"
+        [(ngModel)]="task.title"
+        name="title"
+        required
+      />
+    </div>
+    <div
+      *ngIf="title!.invalid && (title!.dirty || title!.touched)"
+      style="color: red"
+    >
+      enter a title mare than 3 characters.
+    </div>
+
+    <label for="description">Description:</label>
+    <textarea
+      formControlName="description"
+      id="description"
+      [(ngModel)]="task.description"
+      name="description"
+    ></textarea>
+    <div
+      *ngIf="
+        description!.invalid && (description!.dirty || description!.touched)
+      "
+      style="color: red"
+    >
+      enter a description mare than 20 characters.
+    </div>
+
+    <label for="dueDate">Due Date:</label>
+    <input
+      formControlName="dueDate"
+      type="date"
+      id="dueDate"
+      [(ngModel)]="task.dueDate"
+      name="dueDate"
+      required
+    />
+    <div
+      *ngIf="dueDate!.invalid && (dueDate!.dirty || dueDate!.touched)"
+      style="color: red"
+    >
+      enter a date.
+    </div>
+
+    <label for="assignedTo">Assigned To:</label>
+    <input
+      formControlName="assignedTo"
+      type="text"
+      id="assignedTo"
+      [(ngModel)]="task.assignedTo"
+      name="assignedTo"
+      required
+    />
+    <div
+      *ngIf="assignedTo!.invalid && (assignedTo!.dirty || assignedTo!.touched)"
+      style="color: red"
+    >
+      enter a name mare than 3 characters.
+    </div>
+
+    <button [disabled]="!addTaskForm.valid" type="submit">Add Task</button>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="header">
+    <h1>Task Manager</h1>
+    <a class="add-task-button" routerLink="/add-task">Add Task</a>
+  </div>
+  <div class="task-list">
+    <app-task-card
+      *ngFor="let task of tasks"
+      [task]="task"
+      (deleteTask)="onTaskDelete($event)"
+    >
+    </app-task-card>
+  </div>
+</div>

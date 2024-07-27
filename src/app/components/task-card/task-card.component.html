@@ -1,0 +1,10 @@
+<div class="task-card">
+  <h3>{{ task.title }}</h3>
+  <p>Due Date: {{ task.dueDate }}</p>
+  <p>Assigned To: {{ task.assignedTo }}</p>
+  <div class="task-actions">
+    <a [routerLink]="['/home', task.id]">Details</a>
+    <a [routerLink]="['/home', task.id, 'edit']">Edit</a>
+    <button (click)="onDelete()">Delete</button>
+  </div>
+</div>
